@@ -23,3 +23,5 @@ Changes:
     - added the error handling part
     - integrated binding params to protect the db against SQL Injection
     - used the trim function to ensure data consistency and correctness & quotename for replacing square brackets and beautifying the code
+
+    For those who wants to run this sp on older versions of SQL Server, replace the trim function with a combination of ltrim and rtrim functions (example: ltrim(rtrim(column_name)) )
