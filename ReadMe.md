@@ -12,7 +12,14 @@ i closed and deallocated the cursor and i added the condition to the @sql variab
 i executed the @sql variable which contained the update statement
 
 ## Execution syntax
-exec crc.Update_using_Json @schema_name = 'your schema name (in my case 'crc'), @table_name = 'your table name', @condition = 'your condition (for example: 'id = 2')', @json = '{"table_column_name":"value","table_column_name":"value", "table_column_name":"value"}'
+exec crc.Update_using_Json @schema_name = 'your schema name (in my case 'crc'), @table_name = 'your table name', @column_n = 'your column name, @value = 'the value of the column on which you want to update the data', @json = '{"table_column_name":"value","table_column_name":"value", "table_column_name":"value"}'
 
 !!Do not forget that the Json must contain the names of the columns in the table!!
-!!Be careful if you create the sp in another schema because its name must be declared in the @schema parameter and also in front sp name (when you create and execute it)
+!!Be careful if you create the sp in another schema because its name must be declared in the @schema parameter and also in front sp name (when you create and execute it) 
+
+
+## Update
+Changes:
+    - added the error handling part
+    - integrated binding params to protect the db against SQL Injection
+    - used the trim function to ensure data consistency and correctness & quotename for replacing square brackets and beautifying the code
